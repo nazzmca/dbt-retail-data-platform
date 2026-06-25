@@ -10,4 +10,4 @@ select
     cast(unit_price as decimal(10,2)) as unit_price,
     country,
     quantity * unit_price as total_amount
-from read_csv_auto('data/raw_orders.csv')
+from {{ source('retail_raw', 'raw_orders') }}
